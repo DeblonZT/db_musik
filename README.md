@@ -23,12 +23,14 @@ FOREIGN KEY (ID_Artis) REFERENCES Artis(ID_Artis) ON DELETE CASCADE ON UPDATE CA
 
 
 ketika kedua table tersebut dimasukan data maka akan muncul tampilan seperti berikut: <br>
-Table Artis: <br>
-ID_Artis, Nama_Artis <br>
-1, Tulus <br>
-2, Sheila on 7 <br>
-3, Autumn! <br>
-4, Jnhygs <br>
++----------+-------------------+ <br>
+|&nbsp;ID_Artis&nbsp;|&nbsp;Nama_Artis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br>
++----------+-------------------+ <br>
+|&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Tulus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br>
+|&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Sheila&nbsp;on&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br>
+|&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Autumn!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br>
+|&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Jnhygs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br>
++----------+-------------------+ <br>
 
 Table Lagu: <br>
 +---------+--------------------+----------+ <br>
@@ -62,8 +64,42 @@ select Artis.Nama_Artis, Lagu.Judul_Lagu from Artis inner join Lagu on Artis.ID_
 ### 2. LEFT JOIN (Utamakan Tabel Kiri/ Tabel Artis)
 ![alt text](https://media.geeksforgeeks.org/wp-content/uploads/20250607130445309937/Left_Join.webp?raw=true) <br>
 Query ini mengambil semua data dari tabel sebelah kiri (Artis). Jika ada artis yang belum punya lagu, barisnya tetap muncul tapi kolom lagunya akan kosong (NULL). <br>
-ID_Artis, Nama_Artis  <br>
-1, Tulus <br>
-2, Sheila on 7 <br>
-3, Autumn! <br>
-4, Jnhygs <br>
+
+SELECT Artis.Nama_Artis, Lagu.Judul_Lagu <br>
+FROM Artis <br>
+LEFT JOIN Lagu ON Artis.ID_Artis = Lagu.ID_Artis; <br>
+
+
++-------------+--------------------+ <br>
+| Nama_Artis  | Judul_Lagu         | <br>
++-------------+--------------------+ <br>
+| Tulus  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;    | Hati-Hati di Jalan | <br>
+| Tulus    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  | Monokrom           | <br>
+| Sheila on 7 &nbsp;| Dan                | <br>
+| Autumn!    &nbsp;&nbsp;&nbsp;&nbsp; | One Way!           | <br>
+| Autumn!     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Not 2 not 3        | <br>
+| Jnhygs     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Shake That SH!T    | <br>
++-------------+--------------------+ <br>
+
+[Lihat Tabel](data.csv)
+
+### 3. RIGHT JOIN (Utamakan Tabel Kanan/ Tabel Lagu)
+![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAR6cLnsK8wODIb1zv4IWTSWSLwF7ydkX_g&s?raw=true) <br>
+Query ini mengambil semua data dari tabel sebelah kiri (Artis). Jika ada artis yang belum punya lagu, barisnya tetap muncul tapi kolom lagunya akan kosong (NULL). <br>
+
+SELECT Artis.Nama_Artis, Lagu.Judul_Lagu <br>
+FROM Artis <br>
+RIGHT JOIN Lagu ON Artis.ID_Artis = Lagu.ID_Artis; <br>
+
++-------------+--------------------+ <br>
+| Nama_Artis  | Judul_Lagu         | <br>
++-------------+--------------------+ <br>
+| Tulus  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;    | Hati-Hati di Jalan | <br>
+| Tulus    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  | Monokrom           | <br>
+| Sheila on 7 &nbsp;| Dan                | <br>
+| Autumn!    &nbsp;&nbsp;&nbsp;&nbsp; | One Way!           | <br>
+| Autumn!     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Not 2 not 3        | <br>
+| Jnhygs     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Shake That SH!T    | <br>
++-------------+--------------------+ <br>
+
+[Lihat Tabel](data.csv)
